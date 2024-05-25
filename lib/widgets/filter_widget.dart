@@ -284,48 +284,51 @@ class _FilterState extends State<Filter> with FilterStyleMixin {
                   ],
                 ),
               ),
+              Container(
+                height: 60,
+                width: double.maxFinite,
+                margin: const EdgeInsets.only(left: 20),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(blurRadius: 8.0),
+                    BoxShadow(color: Colors.white, offset: Offset(0, -16)),
+                    BoxShadow(color: Colors.white, offset: Offset(0, 16)),
+                    BoxShadow(color: Colors.white, offset: Offset(-16, -16)),
+                    BoxShadow(color: Colors.white, offset: Offset(-16, 16)),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FilterTextButton(
+                      text: 'Reset',
+                      isSecondary: true,
+                      onTap: () {
+                        _filterCubit.onFilterRemove();
+                        Navigator.of(context).pop();
+                      },
+                      style: themeProps?.resetButtonStyle,
+                      txtColor: themeProps?.resetButtonColor,
+                    ),
+                    FilterTextButton(
+                      text: 'Apply',
+                      txtColor: themeProps?.submitButtonColor ?? getTheme(context).colorScheme.secondary,
+                      onTap: () {
+                        _filterCubit.onFilterSubmit();
+                        Navigator.of(context).pop();
+                      },
+                      style: themeProps?.submitButtonStyle,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
-          bottomNavigationBar: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(blurRadius: 8.0),
-                BoxShadow(color: Colors.white, offset: Offset(0, -16)),
-                BoxShadow(color: Colors.white, offset: Offset(0, 16)),
-                BoxShadow(color: Colors.white, offset: Offset(-16, -16)),
-                BoxShadow(color: Colors.white, offset: Offset(-16, 16)),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FilterTextButton(
-                  text: 'Reset',
-                  isSecondary: true,
-                  onTap: () {
-                    _filterCubit.onFilterRemove();
-                    Navigator.of(context).pop();
-                  },
-                  style: themeProps?.resetButtonStyle,
-                  txtColor: themeProps?.resetButtonColor,
-                ),
-                FilterTextButton(
-                  text: 'Apply',
-                  txtColor: themeProps?.submitButtonColor ?? getTheme(context).colorScheme.secondary,
-                  onTap: () {
-                    _filterCubit.onFilterSubmit();
-                    Navigator.of(context).pop();
-                  },
-                  style: themeProps?.submitButtonStyle,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-          ),
+          // bottomNavigationBar: ,
         );
       },
     );
