@@ -5,9 +5,6 @@ AmazonLikeFilter is an widget that is used to build Filter UI like as amazon app
 
 ## Motivation
 Main motivation behind this package was one of my project feature is required to add filter UI with multiple filter options.
-## Authors
-
-- [@subhashDev11](https://github.com/subhashDev11)
 
 ## Demo
 ![untitled](https://user-images.githubusercontent.com/70679949/219607936-4ea78197-b518-41e0-97c2-7c7bd2529d6d.gif)
